@@ -51,6 +51,13 @@ class HomeController extends Controller
 
     public function updatecompany(Request $request,$id)
     {
+        $validated = $request->validate([
+            'name' => 'required|max:50',
+            'email' => 'required|unique:companies',
+            'website' => 'required',
+            'logo' => 'image|mimes:jpeg,png,jpg|min_height:100|min_width:100',
+        ]);
+        
         $data=company::find($id);
 
         $image=$request->file;
@@ -80,8 +87,8 @@ class HomeController extends Controller
     {
 
         $validated = $request->validate([
-            'name' => 'required||max:50',
-            'email' => 'required',
+            'name' => 'required|max:50',
+            'email' => 'required|unique:companies',
             'website' => 'required',
             'logo' => 'image|mimes:jpeg,png,jpg|min_height:100|min_width:100',
         ]);
@@ -106,7 +113,5 @@ class HomeController extends Controller
         return redirect('/company-list');
         
     }
-
-
 
 }

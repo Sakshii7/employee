@@ -69,8 +69,8 @@ class MainController extends Controller
         $validated = $request->validate([
             'first_name' => 'required||max:50',
             'last_name' => 'required|max:50',
-            'email' => 'required|max:50',
-            'phone' => 'required',
+            'email' => 'required|max:50|unique:employees',
+            'phone' => 'required|unique:employees',
         ]);
 
 
@@ -103,8 +103,8 @@ class MainController extends Controller
         $validated = $request->validate([
             'first_name' => 'required||max:50',
             'last_name' => 'required|max:50',
-            'email' => 'required|max:50',
-            'phone' => 'required',
+            'email' => 'required|max:50|unique:employees',
+            'phone' => 'required|unique:employees',
         ]);
 
         $data=new employee;
