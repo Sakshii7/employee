@@ -50,9 +50,9 @@ class HomeController extends Controller
     }
 
     public function updatecompany(Request $request,$id)
-    {
+    {   
         $validated = $request->validate([
-            'name' => 'required|max:50',
+            'name' => 'required||max:50',
             'email' => 'required|unique:companies',
             'website' => 'required',
             'logo' => 'image|mimes:jpeg,png,jpg|min_height:100|min_width:100',
@@ -87,7 +87,11 @@ class HomeController extends Controller
     {
 
         $validated = $request->validate([
+<<<<<<< HEAD
             'name' => 'required|max:50',
+=======
+            'name' => 'required||max:50',
+>>>>>>> 28a09e1eaa69bcc8b7e5638819d97fe14e4ed2ba
             'email' => 'required|unique:companies',
             'website' => 'required',
             'logo' => 'image|mimes:jpeg,png,jpg|min_height:100|min_width:100',
